@@ -1,4 +1,4 @@
-# wp-docker
+# wp-docker-setup
 
 Kickstart local development environments for WordPress projects based on docker.
 
@@ -36,5 +36,5 @@ Kickstart local development environments for WordPress projects based on docker.
 When the following command fails `docker-compose up mysql` after a complete reset of your docker containers (remove all docker images & rebuild them) you maybe need to delete the mysql data in your home directory:
 
 ```
-$ rm -rf ~/.laradock/myproject
+$ rm -rf ~/.wp-docker/myproject
 ``` 
