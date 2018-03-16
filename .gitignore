@@ -1,0 +1,14 @@
+composer.phar
+.DS_Store
+.idea
+.env
+.env.*.php
+.env.php
+*.pyc
+venv
+
+version.txt
+# for netbeans
+nbproject
+/node_modules/
+npm-debug.log
