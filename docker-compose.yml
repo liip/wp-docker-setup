@@ -4,7 +4,7 @@ services:
 
   wordpress:
     build:
-      context: ./wp-docker/php-apache-ssl
+      context: ./wp-docker/php-apache
     depends_on:
       - db
     volumes:
