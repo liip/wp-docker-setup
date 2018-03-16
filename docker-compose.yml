@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 
 services:
 
@@ -6,7 +6,7 @@ services:
     build:
       context: ./wp-docker/php-apache
     depends_on:
-      - db
+      - mysql
     volumes:
       - ${APPLICATION}:/var/www
     ports:
@@ -17,16 +17,18 @@ services:
       - frontend
       - backend
 
-  db:
+  mysql:
     image: mysql:5.7
     volumes:
       - ${DATA_SAVE_PATH}/mysql:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - backend
 
 volumes:
   mysql:
