@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+
+  wordpress:
+    build:
+      context: ./wp-docker/php-apache-ssl
+    depends_on:
+      - db
+    volumes:
+      - ${APPLICATION}:/var/www
+    ports:
+      - "${APACHE_HOST_HTTP_PORT}:80"
+      - "${APACHE_HOST_HTTPS_PORT}:443"
+    restart: always
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ${DATA_SAVE_PATH}/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+volumes:
+  mysql:
+    driver: "local"
+
+### Networks Setup ############################################
+
+networks:
+  frontend:
+    driver: "bridge"
+  backend:
+    driver: "bridge"
