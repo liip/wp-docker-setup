@@ -4,7 +4,7 @@ Kickstart local development environments for WordPress projects based on docker.
 
 ## Requirements
 
-* [Docker >= 1.12](https://docs.docker.com/engine/installation/)
+* [Docker >= 17.06.0](https://docs.docker.com/engine/installation/)
 
 ## Installation
 
