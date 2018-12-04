@@ -5,6 +5,8 @@ services:
   wordpress:
     build:
       context: ./wp-docker/php-apache
+      args:
+        - PHP_VERSION=${PHP_VERSION}
     depends_on:
       - mysql
     volumes:
