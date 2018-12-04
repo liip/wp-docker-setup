@@ -1,0 +1,3 @@
+[submodule "wp-docker"]
+	path = wp-docker
+	url = https://github.com/liip/wp-docker.git
